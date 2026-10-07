@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LONGRDEZ TACTICAL - SECURE PORTAL</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Courier New', Courier, monospace; }
+
+        body {
+            background-color: #030704;
+            color: #00ff7f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #matrixCanvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            opacity: 0.25;
+        }
+
+        .crt-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* MÀN HÌNH INTRO TẢI ẢNH LOGO THẬT */
+        #introOverlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #030704;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease;
+        }
+
+        .pixel-logo-container {
+            width: 340px;
+            height: 130px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        #pixelCanvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .download-box {
+            width: 300px;
+            background: #0f1f14;
+            border: 1px solid #ff3344;
+            padding: 4px;
+            border-radius: 6px;
+            box-shadow: 0 0 15px rgba(255, 51, 68, 0.3);
+        }
+
+        .download-bar {
+            width: 0%;
+            height: 14px;
+            background: linear-gradient(90deg, #880011, #ff3344);
+            box-shadow: 0 0 10px #ff3344;
+            border-radius: 3px;
+            transition: width 0.1s linear;
+        }
+
+        .download-text {
+            font-size: 11px;
+            color: #ff3344;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px #ff3344;
+        }
+
+        /* GIAO DIỆN CHÍNH */
+        .container {
+            position: relative;
+            z-index: 5;
+            background: rgba(10, 18, 12, 0.92);
+            backdrop-filter: blur(8px);
+            border: 2px solid #00a04b;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 440px;
+            padding: 25px;
+            box-shadow: 0 0 25px rgba(0, 255, 127, 0.2);
+            text-align: center;
+            display: none;
+        }
+
+        h1 {
+            font-size: 13px;
+            background: #0e1a11;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #00a04b;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #00ff7f;
+        }
+
+        .step-indicator {
+            font-size: 11px;
+            color: #ffaa00;
+            margin-bottom: 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .terminal-log {
+            font-size: 11px;
+            color: #88aa94;
+            margin-bottom: 20px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 7px;
+            height: 13px;
+            background: #00ff7f;
+            margin-left: 5px;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        .btn {
+            background: #00642d;
+            color: #ffffff;
+            border: none;
+            padding: 13px;
+            font-size: 13px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+            transition: all 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .btn:hover:not(:disabled) {
+            background: #00a04b;
+            box-shadow: 0 0 15px #00ff7f;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            background: #112618;
+            color: #446650;
+            cursor: not-allowed;
+        }
+
+        .progress-box {
+            display: none;
+            width: 100%;
+            background: #0f1f14;
+            border: 1px solid #00a04b;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00642d, #00ff7f);
+            box-shadow: 0 0 10px #00ff7f;
+            transition: width 0.1s linear;
+        }
+
+        .key-display {
+            display: none;
+            background: #0f1f14;
+            border: 1px dashed #00ff7f;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffffff;
+            word-break: break-all;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .copy-btn {
+            background: #142319;
+            color: #00e66e;
+            border: 1px solid #00a04b;
+            margin-top: 10px;
+        }
+        
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<canvas id="matrixCanvas"></canvas>
+<div class="crt-overlay"></div>
+
+<!-- MÀN HÌNH INTRO TẢI ẢNH LOGO THẬT -->
+<div id="introOverlay">
+    <div class="pixel-logo-container">
+        <canvas id="pixelCanvas"></canvas>
+    </div>
+    <div class="download-box">
+        <div class="download-bar" id="downloadBar"></div>
+    </div>
+    <div class="download-text" id="downloadText">Đang tải tài nguyên hệ thống [0%]</div>
+</div>
+
+<!-- GIAO DIỆN CHÍNH 2 CHECKPOINTS -->
+<div class="container" id="mainContainer">
+    <h1>[ LONGRDEZ TACTICAL PORTAL ]</h1>
+    
+    <div class="step-indicator" id="stepIndicator">CHẶNG 1 / 2: XÁC THỰC HWID</div>
+    
+    <div class="terminal-log">
+        <span id="logText">Đang liên kết mã thiết bị từ Roblox...</span><span class="cursor"></span>
+    </div>
+
+    <div class="progress-box" id="progressBox">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div id="step1Container">
+        <button class="btn" id="btnStep1" onclick="startCheckpoint1()">[ BẮT ĐẦU CHẶNG 1 ]</button>
+    </div>
+
+    <div id="step2Container" class="hidden">
+        <button class="btn" id="btnStep2" onclick="startCheckpoint2()" disabled>[ ĐỢI ĐẾM NGƯỢC (60s) ]</button>
+    </div>
+
+    <div class="key-display" id="keyBox">
+        <span id="keyValue" style="text-shadow: 0 0 10px #00ff7f;">LONGRDEZ-00000000</span>
+        <button class="btn copy-btn" onclick="copyKey()">SAO CHÉP KEY HOÀN TẤT</button>
+    </div>
+</div>
+
+<script>
+    // ================= LOAD ẢNH LOGO THẬT ĐỂ GHÉP PIXEL =================
+    const pixelCanvas = document.getElementById('pixelCanvas');
+    const pCtx = pixelCanvas.getContext('2d');
+    pixelCanvas.width = 340;
+    pixelCanvas.height = 130;
+
+    class PixelParticle {
+        constructor(targetX, targetY, color) {
+            this.targetX = targetX;
+            this.targetY = targetY;
+            this.x = Math.random() * pixelCanvas.width;
+            this.y = Math.random() * pixelCanvas.height;
+            this.size = Math.random() * 2.2 + 1.2;
+            this.speed = Math.random() * 0.08 + 0.05;
+            this.color = color;
+        }
+        update() {
+            this.x += (this.targetX - this.x) * this.speed;
+            this.y += (this.targetY - this.y) * this.speed;
+        }
+        draw() {
+            pCtx.fillStyle = this.color;
+            pCtx.fillRect(this.x, this.y, this.size, this.size);
+        }
+    }
+
+    let particles = [];
+    let downloadProgress = 0;
+    const downloadBar = document.getElementById('downloadBar');
+    const downloadText = document.getElementById('downloadText');
+    let isReady = false;
+
+    // Tải file logo.png từ cùng thư mục trên GitHub
+    const logoImg = new Image();
+    logoImg.crossOrigin = "Anonymous";
+    logoImg.src = "logo.png"; 
+
+    logoImg.onload = function() {
+        const offCanvas = document.createElement('canvas');
+        const offCtx = offCanvas.getContext('2d');
+        offCanvas.width = pixelCanvas.width;
+        offCanvas.height = pixelCanvas.height;
+
+        // Căn chỉnh ảnh logo khít khung canvas
+        offCtx.drawImage(logoImg, 0, 0, offCanvas.width, offCanvas.height);
+        const imgData = offCtx.getImageData(0, 0, offCanvas.width, offCanvas.height);
+        
+        const step = 3; // Độ chi tiết hạt pixel
+        for (let y = 0; y < offCanvas.height; y += step) {
+            for (let x = 0; x < offCanvas.width; x += step) {
+                const index = (y * offCanvas.width + x) * 4;
+                const alpha = imgData.data[index + 3];
+                
+                // Lọc lấy các điểm ảnh hiển thị trên logo
+                if (alpha > 50) {
+                    const r = imgData.data[index];
+                    const g = imgData.data[index + 1];
+                    const b = imgData.data[index + 2];
+                    const color = `rgb(${r},${g},${b})`;
+                    particles.push(new PixelParticle(x, y, color));
+                }
+            }
+        }
+        isReady = true;
+    };
+
+    function animateIntro() {
+        pCtx.clearRect(0, 0, pixelCanvas.width, pixelCanvas.height);
+        
+        if (isReady) {
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+        }
+
+        if (downloadProgress < 100) {
+            downloadProgress += 1;
+            if(downloadProgress > 100) downloadProgress = 100;
+            downloadBar.style.width = downloadProgress + '%';
+            downloadText.innerText = `Đang tải tài nguyên hệ thống [${downloadProgress}%]`;
+            requestAnimationFrame(animateIntro);
+        } else {
+            downloadText.innerText = "HOÀN TẤT TẢI DỮ LIỆU!";
+            setTimeout(() => {
+                const intro = document.getElementById('introOverlay');
+                intro.style.opacity = '0';
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                    document.getElementById('mainContainer').style.display = 'block';
+                }, 800);
+            }, 500);
+        }
+    }
+
+    setTimeout(() => {
+        animateIntro();
+    }, 500);
+
+
+    // ================= MATRIX BACKGROUND =================
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const chars = '01LONGRDEZX9876543210ABCDEF';
+    const fontSize = 14;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+        ctx.fillStyle = 'rgba(3, 7, 4, 0.08)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#00ff7f';
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+    setInterval(drawMatrix, 33);
+
+    let userHWID = "UNKNOWN_HWID";
+    const SECRET_SALT = "LONGRDEZ_SECRET_2026_KEY";
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hwidParam = urlParams.get('hwid');
+        if (hwidParam) {
+            userHWID = hwidParam.trim();
+            document.getElementById('logText').innerHTML = "<span style='color:#00ff7f;'>Đã nhận diện HWID thiết bị. Sẵn sàng qua Chặng 1.</span>";
+        } else {
+            document.getElementById('logText').innerHTML = "<span style='color:#ffaa00;'>Cảnh báo: Không tìm thấy tham số HWID từ game!</span>";
+        }
+    });
+
+    // CHẶNG 1
+    function startCheckpoint1() {
+        const btn1 = document.getElementById('btnStep1');
+        const progressBox = document.getElementById('progressBox');
+        const progressBar = document.getElementById('progressBar');
+        const logText = document.getElementById('logText');
+
+        btn1.disabled = true;
+        progressBox.style.display = 'block';
+        logText.innerText = "Đang quét mã bảo mật Chặng 1...";
+
+        let width = 0;
+        const interval = setInterval(() => {
+            width += 2;
+            progressBar.style.width = width + '%';
+
+            if (width === 50) logText.innerText = "Đang giải mã thông tin trạm trung chuyển...";
+
+            if (width >= 100) {
+                clearInterval(interval);
+                progressBox.style.display = 'none';
+                
+                document.getElementById('step1Container').classList.add('hidden');
+                document.getElementById('step2Container').classList.remove('hidden');
+                document.getElementById('stepIndicator').innerText = "CHẶNG 2 / 2: XÁC THỰC BẢO MẬT CAO";
+                logText.innerHTML = "<span style='color:#00ff7f;'>Hoàn tất Chặng 1! Vui lòng chờ đếm ngược 60 giây ở Chặng 2.</span>";
+
+                startCountdownForStep2(60);
+            }
+        }, 50);
+    }
+
+    // ĐẾM NGƯỢC 60 GIÂY CHO CHẶNG 2
+    function startCountdownForStep2(seconds) {
+        let timeLeft = seconds;
+        const btn2 = document.getElementById('btnStep2');
+        const logText = document.getElementById('logText');
+
+        const timer = setInterval(() => {
+            if (timeLeft > 0) {
+                btn2.innerText = "[ VUI LÒNG ĐỢI CHẶNG 2 (" + timeLeft + "s) ]";
+                timeLeft--;
+            } else {
+                clearInterval(timer);
+                btn2.disabled = false;
+                btn2.innerText = "[ NHẬN KEY TÁC CHIẾN NGAY ]";
+                logText.innerHTML = "<span style='color:#00ff7f;'>Chặng 2 đã mở khóa hoàn toàn! Bấm nút để lấy Key.</span>";
+            }
+        }, 1000);
+    }
+
+    // HOÀN TẤT VÀ SINH KEY
+    function startCheckpoint2() {
+        const btn2 = document.getElementById('btnStep2');
+        const progressBox = document.getElementById('progressBox');
+        const progressBar = document.getElementById('progressBar');
+        const logText = document.getElementById('logText');
+        const keyBox = document.getElementById('keyBox');
+
+        btn2.style.display = 'none';
+        progressBox.style.display = 'block';
+        logText.innerText = "Đang tổng hợp HWID và SECRET_SALT...";
+
+        let width = 0;
+        const interval = setInterval(() => {
+            width += 2;
+            progressBar.style.width = width + '%';
+
+            if (width === 50) logText.innerText = "Đang cấp phát mã LONGRDEZ độc quyền...";
+
+            if (width >= 100) {
+                clearInterval(interval);
+                progressBox.style.display = 'none';
+                document.getElementById('stepIndicator').innerText = "HOÀN TẤT TOÀN BỘ QUÁ TRÌNH";
+                logText.innerHTML = "<span style='color:#00ff7f;'>CẤP KEY THÀNH CÔNG!</span>";
+
+                const combined = userHWID + "_" + SECRET_SALT;
+                let hash = 0;
+                for (let i = 0; i < combined.length; i++) {
+                    const char = combined.charCodeAt(i);
+                    hash = (hash * 31 + char) % 4294967296;
+                }
+                const generatedKey = "LONGRDEZ-" + (hash >>> 0).toString(16).toUpperCase();
+
+                document.getElementById('keyValue').innerText = generatedKey;
+                keyBox.style.display = 'block';
+            }
+        }, 50);
+    }
+
+    function copyKey() {
+        const keyText = document.getElementById('keyValue').innerText;
+        navigator.clipboard.writeText(keyText);
+        alert("Đã sao chép Key: " + keyText);
+    }
+</script>
+
+</body>
+</html>
