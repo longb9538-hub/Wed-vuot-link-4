@@ -1,13 +1,13 @@
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;vi&quot;&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;UTF-8&quot;&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-&lt;title&gt;LONGRDEZ HUB&lt;/title&gt;
-&lt;style&gt;
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LONGRDEZ HUB</title>
+<style>
 :root{--c:#b86bff;--b:#ff00ee;--bg:#0a0109;--ok:#00ffaa}
-@property --a{syntax:&#39;&lt;angle&gt;&#39;;inherits:false;initial-value:0deg}
-*{box-sizing:border-box;margin:0;padding:0;font-family:&#39;Courier New&#39;,monospace}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Courier New',monospace}
 html,body{background:var(--bg);color:var(--c)}
 body{min-height:100vh;overflow-x:hidden;display:flex;justify-content:center;align-items:center;padding:20px}
 
@@ -66,14 +66,14 @@ body{min-height:100vh;overflow-x:hidden;display:flex;justify-content:center;alig
 .hn.on span{color:#fff;text-shadow:0 0 8px var(--c)}
 .hn text{fill:#912fa8;font-size:22px;text-anchor:middle;transition:fill .5s}.hn.on text{fill:#fff}
 .ln{width:clamp(24px,8vw,60px);height:2px;background:#53165c;margin-bottom:26px;position:relative;overflow:hidden}
-.ln::after{content:&#39;&#39;;position:absolute;inset:0;background:var(--c);transform:translateX(-100%);transition:transform .8s}
+.ln::after{content:'';position:absolute;inset:0;background:var(--c);transform:translateX(-100%);transition:transform .8s}
 .ln.on::after{transform:none}
 
 /* ===== KHUNG CHÍNH ===== */
 .master{position:relative;z-index:10;width:100%;max-width:1100px;display:grid;grid-template-columns:1fr 1fr;gap:34px;padding:30px;border-radius:22px;
  background:rgba(24,4,23,.62);backdrop-filter:blur(18px);box-shadow:0 0 60px rgba(212,0,255,.2);opacity:0;transform:translateY(24px) scale(.97);transition:all 1.1s cubic-bezier(.2,.9,.2,1);will-change:transform}
 .master.show{opacity:1;transform:none}
-.master::before{content:&#39;&#39;;position:absolute;inset:-2px;border-radius:24px;padding:2px;z-index:-1;
+.master::before{content:'';position:absolute;inset:-2px;border-radius:24px;padding:2px;z-index:-1;
  background:conic-gradient(from var(--a),transparent 0 55%,var(--c),var(--b),transparent 90%);animation:ba 5s linear infinite;
  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
 @keyframes ba{to{--a:360deg}}
@@ -92,7 +92,7 @@ body{min-height:100vh;overflow-x:hidden;display:flex;justify-content:center;alig
 .ring{position:absolute;border-radius:50%;border:1px dashed rgba(134,0,255,.5);animation:spin 20s linear infinite}
 .ring:nth-child(1){inset:4%}.ring:nth-child(2){inset:14%;border-style:solid;border-color:rgba(255,0,238,.5);animation-duration:14s;animation-direction:reverse}
 .ring:nth-child(3){inset:24%;border-color:rgba(134,0,255,.25);animation-duration:30s}
-.ring::after{content:&#39;&#39;;position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px var(--c)}
+.ring::after{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px var(--c)}
 .pulse{position:absolute;inset:0;margin:auto;width:40%;aspect-ratio:1;border-radius:50%;border:2px solid var(--c);animation:pl 3s ease-out infinite;opacity:0}
 .pulse:nth-of-type(2){animation-delay:1.5s}
 @keyframes pl{0%{transform:scale(.6);opacity:.8}100%{transform:scale(2.2);opacity:0}}
@@ -102,13 +102,13 @@ body{min-height:100vh;overflow-x:hidden;display:flex;justify-content:center;alig
 .st i{width:22px;height:22px;border-radius:50%;border:2px solid #53165c;display:grid;place-items:center;font-style:normal;font-size:11px;transition:.4s}
 .st.on{color:#fff}.st.on i{border-color:var(--c);background:var(--c);color:#000;box-shadow:0 0 14px var(--c)}
 .bar{flex:1;height:2px;background:#53165c;margin:0 6px 16px;position:relative;overflow:hidden}
-.bar::after{content:&#39;&#39;;position:absolute;inset:0;background:var(--c);transform:translateX(-100%);transition:transform .8s}.bar.on::after{transform:none}
+.bar::after{content:'';position:absolute;inset:0;background:var(--c);transform:translateX(-100%);transition:transform .8s}.bar.on::after{transform:none}
 .info{width:100%;background:rgba(212,0,255,.06);border-left:4px solid var(--c);padding:14px;font-size:12.5px;line-height:1.7;color:#f7a0ff}
 
 /* Cột phải */
 .col-r{display:flex;flex-direction:column;gap:16px}
 .head{background:linear-gradient(90deg,#240222,#3d043a);padding:14px;border-radius:10px;border:1px solid var(--c);text-align:center;font-weight:bold;color:#fff;text-shadow:0 0 10px var(--c);position:relative;overflow:hidden}
-.head::after,.btn::after{content:&#39;&#39;;position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:sh 3.4s infinite}
+.head::after,.btn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:sh 3.4s infinite}
 @keyframes sh{0%,60%{left:-60%}100%{left:130%}}
 .term{flex:1;min-height:190px;background:#0e010d;border:2px solid #ff00dd;border-radius:10px;padding:16px;box-shadow:inset 0 0 20px rgba(255,0,238,.5)}
 .ll{font-size:12.5px;margin-bottom:7px;text-shadow:0 0 5px var(--c);animation:in .4s}
@@ -136,7 +136,7 @@ body{min-height:100vh;overflow-x:hidden;display:flex;justify-content:center;alig
 @keyframes lp{50%{filter:drop-shadow(0 0 22px #e6c8ff) drop-shadow(0 0 70px #ff00ee)}}
 .hn.on svg{animation:hp 2s ease-in-out infinite}
 @keyframes hp{50%{transform:scale(1.08);filter:drop-shadow(0 0 18px var(--c)) drop-shadow(0 0 34px var(--b))}}
-.ln.on::before{content:&#39;&#39;;position:absolute;top:-1px;left:-10px;width:12px;height:4px;border-radius:2px;background:#fff;box-shadow:0 0 10px #fff;animation:tv 1.3s linear infinite;z-index:1}
+.ln.on::before{content:'';position:absolute;top:-1px;left:-10px;width:12px;height:4px;border-radius:2px;background:#fff;box-shadow:0 0 10px #fff;animation:tv 1.3s linear infinite;z-index:1}
 @keyframes tv{to{left:100%}}
 .cap{position:absolute;left:0;right:0;top:calc(50% + clamp(74px,17vw,116px));text-align:center;font-size:12px;letter-spacing:.35em;color:#e6d0ff;text-shadow:0 0 10px var(--c);opacity:0;transition:opacity .8s .6s}
 #intro.s3 .cap{opacity:1}
@@ -149,16 +149,16 @@ body{min-height:100vh;overflow-x:hidden;display:flex;justify-content:center;alig
 @keyframes kpop{from{opacity:0;transform:scale(.2) rotate(-120deg)}}
 .hexk{animation:spin 30s linear infinite;transform-origin:0 0}
 /* ===== LÀM ĐẸP ===== */
-body,.info,.head,.btn,.title,.badge,.st,#toast,.brand{font-family:&#39;Segoe UI&#39;,system-ui,-apple-system,Roboto,sans-serif}
-.term,.ll,.key,.hist,.boot,.hn span{font-family:ui-monospace,&#39;SF Mono&#39;,Consolas,&#39;Courier New&#39;,monospace}
+body,.info,.head,.btn,.title,.badge,.st,#toast,.brand{font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif}
+.term,.ll,.key,.hist,.boot,.hn span{font-family:ui-monospace,'SF Mono',Consolas,'Courier New',monospace}
 .master{border-radius:28px;background:linear-gradient(160deg,rgba(56,10,55,.72),rgba(20,3,19,.8));box-shadow:0 30px 80px rgba(160,0,145,.35),0 0 60px rgba(212,0,255,.18),inset 0 1px 0 rgba(255,255,255,.12)}
 .master::before{border-radius:30px}
 .title{font-weight:800;letter-spacing:.32em;margin-right:-.32em;background:linear-gradient(90deg,#fff,#d17fff 40%,#ff4dec 70%,#fff);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;text-shadow:none;filter:drop-shadow(0 0 14px rgba(134,0,255,.55));animation:tx 6s linear infinite}
 @keyframes tx{to{background-position:200% center}}
 .badge{font-size:10px;letter-spacing:1px;background:rgba(58,0,60,.7);border-color:rgba(134,0,255,.35)}
-.badge::before{content:&#39;&#39;;display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:6px;box-shadow:0 0 8px var(--ok)}
-.orbit::before{content:&#39;&#39;;position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(rgba(134,0,255,.55) 0 .5deg,transparent .5deg 6deg);-webkit-mask:radial-gradient(circle,transparent 61%,#000 62%,#000 65%,transparent 66%);mask:radial-gradient(circle,transparent 61%,#000 62%,#000 65%,transparent 66%);animation:spin 70s linear infinite}
-.orbit::after{content:&#39;&#39;;position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,rgba(184,0,255,.28),rgba(200,0,187,.08) 55%,transparent 70%);animation:pg 5s infinite alternate}
+.badge::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--ok);margin-right:6px;box-shadow:0 0 8px var(--ok)}
+.orbit::before{content:'';position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(rgba(134,0,255,.55) 0 .5deg,transparent .5deg 6deg);-webkit-mask:radial-gradient(circle,transparent 61%,#000 62%,#000 65%,transparent 66%);mask:radial-gradient(circle,transparent 61%,#000 62%,#000 65%,transparent 66%);animation:spin 70s linear infinite}
+.orbit::after{content:'';position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,rgba(184,0,255,.28),rgba(200,0,187,.08) 55%,transparent 70%);animation:pg 5s infinite alternate}
 .orbit .core,.ring,.pulse{z-index:1}
 .sp{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 8px 2px var(--c);opacity:0;animation:tw 3.2s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1.4) translateY(-10px)}}
@@ -201,7 +201,7 @@ body,.info,.head,.btn,.title,.badge,.st,#toast,.brand{font-family:&#39;Segoe UI&
 @media(max-width:900px){.g2{display:block}}
 .master::before{display:none}
 .bd{position:absolute;inset:-2px;border-radius:30px;padding:2px;overflow:hidden;z-index:-1;pointer-events:none;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
-.bd::before{content:&#39;&#39;;position:absolute;left:50%;top:50%;width:300%;aspect-ratio:1;margin-left:-150%;background:conic-gradient(from 0deg,transparent 0 55%,var(--c),var(--b),transparent 90%);transform:translateY(-50%) rotate(0);animation:bds 5s linear infinite;will-change:transform}
+.bd::before{content:'';position:absolute;left:50%;top:50%;width:300%;aspect-ratio:1;margin-left:-150%;background:conic-gradient(from 0deg,transparent 0 55%,var(--c),var(--b),transparent 90%);transform:translateY(-50%) rotate(0);animation:bds 5s linear infinite;will-change:transform}
 @keyframes bds{to{transform:translateY(-50%) rotate(360deg)}}
 .title{animation:tx 6s linear infinite}
 .orbit .core{filter:drop-shadow(0 0 12px var(--c))}
@@ -217,259 +217,259 @@ body,.info,.head,.btn,.title,.badge,.st,#toast,.brand{font-family:&#39;Segoe UI&
 html.lite .master{backdrop-filter:none;-webkit-backdrop-filter:none;background:linear-gradient(160deg,rgba(12,6,30,.95),rgba(5,2,14,.97))}
 html.lite .aurora{filter:none}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;animation-iteration-count:1!important;transition-duration:.01s!important}}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
+</style>
+</head>
+<body>
 
-&lt;canvas id=&quot;matrix&quot;&gt;&lt;/canvas&gt;
-&lt;div class=&quot;scan&quot;&gt;&lt;/div&gt;&lt;div class=&quot;glow g1&quot;&gt;&lt;/div&gt;&lt;div class=&quot;glow g2&quot;&gt;&lt;/div&gt;
+<canvas id="matrix"></canvas>
+<div class="scan"></div><div class="glow g1"></div><div class="glow g2"></div>
 
-&lt;!-- ============ INTRO ============ --&gt;
-&lt;div id=&quot;intro&quot;&gt;
-  &lt;canvas id=&quot;fx&quot;&gt;&lt;/canvas&gt;
-  &lt;div class=&quot;vg&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;aurora&quot;&gt;&lt;/div&gt;
-  &lt;svg class=&quot;hive&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;&lt;defs&gt;
-    &lt;pattern id=&quot;hx&quot; width=&quot;56&quot; height=&quot;97&quot; patternUnits=&quot;userSpaceOnUse&quot; patternTransform=&quot;scale(.9)&quot;&gt;
-      &lt;path d=&quot;M28 0 56 16v32L28 64 0 48V16zM28 64v33M0 48 0 81M56 48v33&quot; fill=&quot;none&quot; stroke=&quot;rgba(214,0,255,.35)&quot; stroke-width=&quot;1.2&quot;/&gt;&lt;/pattern&gt;&lt;/defs&gt;
-    &lt;rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;url(#hx)&quot;/&gt;&lt;/svg&gt;
+<!-- ============ INTRO ============ -->
+<div id="intro">
+  <canvas id="fx"></canvas>
+  <div class="vg"></div>
+  <div class="aurora"></div>
+  <svg class="hive" width="100%" height="100%"><defs>
+    <pattern id="hx" width="56" height="97" patternUnits="userSpaceOnUse" patternTransform="scale(.9)">
+      <path d="M28 0 56 16v32L28 64 0 48V16zM28 64v33M0 48 0 81M56 48v33" fill="none" stroke="rgba(214,0,255,.35)" stroke-width="1.2"/></pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hx)"/></svg>
 
-  &lt;div class=&quot;tri&quot; style=&quot;left:18%;top:30%&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tri&quot; style=&quot;left:78%;top:24%;animation-delay:-2s&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;tri&quot; style=&quot;left:70%;top:62%;animation-delay:-4s&quot;&gt;&lt;/div&gt;&lt;div class=&quot;tri&quot; style=&quot;left:26%;top:58%;animation-delay:-1s&quot;&gt;&lt;/div&gt;
+  <div class="tri" style="left:18%;top:30%"></div><div class="tri" style="left:78%;top:24%;animation-delay:-2s"></div>
+  <div class="tri" style="left:70%;top:62%;animation-delay:-4s"></div><div class="tri" style="left:26%;top:58%;animation-delay:-1s"></div>
 
-  &lt;svg class=&quot;stage hud&quot; viewBox=&quot;-200 -200 400 400&quot; fill=&quot;none&quot; stroke=&quot;rgba(134,0,255,.55)&quot;&gt;
-    &lt;g class=&quot;r1&quot;&gt;&lt;circle r=&quot;180&quot; stroke-dasharray=&quot;3 9&quot;/&gt;&lt;/g&gt;
-    &lt;g class=&quot;r2&quot;&gt;&lt;circle r=&quot;150&quot; stroke-width=&quot;2&quot; stroke-dasharray=&quot;90 30 10 30&quot;/&gt;&lt;/g&gt;
-    &lt;g class=&quot;r3&quot;&gt;&lt;circle r=&quot;166&quot; stroke-width=&quot;9&quot; stroke=&quot;rgba(190,120,255,.45)&quot; stroke-dasharray=&quot;1.2 16.1&quot;/&gt;&lt;/g&gt;
-    &lt;g class=&quot;r3&quot;&gt;&lt;circle r=&quot;120&quot; stroke=&quot;rgba(254,0,255,.6)&quot; stroke-dasharray=&quot;2 6&quot;/&gt;&lt;/g&gt;
-  &lt;/svg&gt;
-  &lt;svg class=&quot;stage logo&quot; viewBox=&quot;-80 -80 160 160&quot;&gt;
-    &lt;path d=&quot;M0-62L54-31L54 31L0 62L-54 31L-54-31Z&quot;/&gt;
-    &lt;path d=&quot;M44 0L22 38L-22 38L-44 0L-22-38L22-38Z&quot;/&gt;
-    &lt;path d=&quot;M-14-26V20H20V10H-4V-26Z&quot;/&gt;
-    &lt;path d=&quot;M0-79L7-71L0-63L-7-71Z&quot;/&gt;
-    &lt;path d=&quot;M0 79L7 71L0 63L-7 71Z&quot;/&gt;
-  &lt;/svg&gt;
-  &lt;div class=&quot;brand&quot;&gt;&lt;b&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:0&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:1&quot;&gt;O&lt;/span&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:2&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:3&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:4&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:5&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:6&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;ch&quot; style=&quot;--i:7&quot;&gt;Z&lt;/span&gt;&lt;/b&gt;&lt;i&gt;KEY PORTAL&lt;/i&gt;&lt;/div&gt;
+  <svg class="stage hud" viewBox="-200 -200 400 400" fill="none" stroke="rgba(134,0,255,.55)">
+    <g class="r1"><circle r="180" stroke-dasharray="3 9"/></g>
+    <g class="r2"><circle r="150" stroke-width="2" stroke-dasharray="90 30 10 30"/></g>
+    <g class="r3"><circle r="166" stroke-width="9" stroke="rgba(190,120,255,.45)" stroke-dasharray="1.2 16.1"/></g>
+    <g class="r3"><circle r="120" stroke="rgba(254,0,255,.6)" stroke-dasharray="2 6"/></g>
+  </svg>
+  <svg class="stage logo" viewBox="-80 -80 160 160">
+    <path d="M0-62L54-31L54 31L0 62L-54 31L-54-31Z"/>
+    <path d="M44 0L22 38L-22 38L-44 0L-22-38L22-38Z"/>
+    <path d="M-14-26V20H20V10H-4V-26Z"/>
+    <path d="M0-79L7-71L0-63L-7-71Z"/>
+    <path d="M0 79L7 71L0 63L-7 71Z"/>
+  </svg>
+  <div class="brand"><b><span class="ch" style="--i:0">L</span><span class="ch" style="--i:1">O</span><span class="ch" style="--i:2">N</span><span class="ch" style="--i:3">G</span><span class="ch" style="--i:4">R</span><span class="ch" style="--i:5">D</span><span class="ch" style="--i:6">E</span><span class="ch" style="--i:7">Z</span></b><i>KEY PORTAL</i></div>
 
-  &lt;div class=&quot;hexrow&quot;&gt;
-    &lt;div class=&quot;hn&quot; id=&quot;h1&quot;&gt;&lt;svg viewBox=&quot;0 0 60 60&quot;&gt;&lt;polygon points=&quot;30,2 56,16 56,44 30,58 4,44 4,16&quot;/&gt;&lt;text x=&quot;30&quot; y=&quot;37&quot;&gt;◈&lt;/text&gt;&lt;/svg&gt;&lt;span&gt;XÁC MINH&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;ln&quot; id=&quot;l1&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;hn&quot; id=&quot;h2&quot;&gt;&lt;svg viewBox=&quot;0 0 60 60&quot;&gt;&lt;polygon points=&quot;30,2 56,16 56,44 30,58 4,44 4,16&quot;/&gt;&lt;text x=&quot;30&quot; y=&quot;37&quot;&gt;⟁&lt;/text&gt;&lt;/svg&gt;&lt;span&gt;BYPASS&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;ln&quot; id=&quot;l2&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;hn&quot; id=&quot;h3&quot;&gt;&lt;svg viewBox=&quot;0 0 60 60&quot;&gt;&lt;polygon points=&quot;30,2 56,16 56,44 30,58 4,44 4,16&quot;/&gt;&lt;text x=&quot;30&quot; y=&quot;37&quot;&gt;✦&lt;/text&gt;&lt;/svg&gt;&lt;span&gt;KEY&lt;/span&gt;&lt;/div&gt;
-  &lt;/div&gt;
+  <div class="hexrow">
+    <div class="hn" id="h1"><svg viewBox="0 0 60 60"><polygon points="30,2 56,16 56,44 30,58 4,44 4,16"/><text x="30" y="37">◈</text></svg><span>XÁC MINH</span></div>
+    <div class="ln" id="l1"></div>
+    <div class="hn" id="h2"><svg viewBox="0 0 60 60"><polygon points="30,2 56,16 56,44 30,58 4,44 4,16"/><text x="30" y="37">⟁</text></svg><span>BYPASS</span></div>
+    <div class="ln" id="l2"></div>
+    <div class="hn" id="h3"><svg viewBox="0 0 60 60"><polygon points="30,2 56,16 56,44 30,58 4,44 4,16"/><text x="30" y="37">✦</text></svg><span>KEY</span></div>
+  </div>
 
-  &lt;div class=&quot;cap&quot; id=&quot;cap&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;boot&quot; id=&quot;boot&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;load&quot;&gt;&lt;div class=&quot;lt&quot;&gt;&lt;span id=&quot;lmsg&quot;&gt;KHỞI TẠO LÕI HỆ THỐNG&lt;/span&gt;&lt;span id=&quot;lpct&quot;&gt;0%&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;lb&quot;&gt;&lt;i id=&quot;lfill&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;
-  &lt;button id=&quot;skip&quot;&gt;BỎ QUA&lt;/button&gt;
-&lt;/div&gt;
+  <div class="cap" id="cap"></div>
+  <div class="boot" id="boot"></div>
+  <div class="load"><div class="lt"><span id="lmsg">KHỞI TẠO LÕI HỆ THỐNG</span><span id="lpct">0%</span></div><div class="lb"><i id="lfill"></i></div></div>
+  <button id="skip">BỎ QUA</button>
+</div>
 
-&lt;!-- ============ TRANG CHÍNH ============ --&gt;
-&lt;div class=&quot;master&quot; id=&quot;master&quot;&gt;
-  &lt;div class=&quot;bd&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;badge&quot;&gt;SECURE CONNECTION: ESTABLISHED&lt;/div&gt;
+<!-- ============ TRANG CHÍNH ============ -->
+<div class="master" id="master">
+  <div class="bd"></div>
+  <div class="badge">SECURE CONNECTION: ESTABLISHED</div>
 
-  &lt;div class=&quot;col-l&quot;&gt;
-    &lt;div class=&quot;title&quot;&gt;LONGRDEZ HUB&lt;/div&gt;
-    &lt;div class=&quot;orbit&quot;&gt;
-      &lt;div class=&quot;ring&quot;&gt;&lt;/div&gt;&lt;div class=&quot;ring&quot;&gt;&lt;/div&gt;&lt;div class=&quot;ring&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;pulse&quot;&gt;&lt;/div&gt;&lt;div class=&quot;pulse&quot;&gt;&lt;/div&gt;
-      &lt;svg class=&quot;core&quot; viewBox=&quot;-50 -50 100 100&quot;&gt;
-        &lt;defs&gt;
-          &lt;linearGradient id=&quot;kg&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#fbf0ff&quot;/&gt;&lt;stop offset=&quot;.45&quot; stop-color=&quot;#c88cff&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#7a2be0&quot;/&gt;&lt;/linearGradient&gt;
-          &lt;linearGradient id=&quot;hg&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;0&quot; y2=&quot;1&quot;&gt;&lt;stop offset=&quot;0&quot; stop-color=&quot;#2a0f4d&quot; stop-opacity=&quot;.92&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#0d0420&quot; stop-opacity=&quot;.92&quot;/&gt;&lt;/linearGradient&gt;
-          &lt;linearGradient id=&quot;sh&quot; gradientUnits=&quot;userSpaceOnUse&quot; x1=&quot;-14&quot; y1=&quot;0&quot; x2=&quot;14&quot; y2=&quot;0&quot;&gt;
-            &lt;stop offset=&quot;0&quot; stop-color=&quot;#fff&quot; stop-opacity=&quot;0&quot;/&gt;&lt;stop offset=&quot;.5&quot; stop-color=&quot;#fff&quot; stop-opacity=&quot;.9&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#fff&quot; stop-opacity=&quot;0&quot;/&gt;
-            &lt;animateTransform attributeName=&quot;gradientTransform&quot; type=&quot;translate&quot; from=&quot;-45 0&quot; to=&quot;45 0&quot; dur=&quot;3.6s&quot; repeatCount=&quot;indefinite&quot;/&gt;
-          &lt;/linearGradient&gt;
-          &lt;g id=&quot;ks&quot;&gt;
-            &lt;path fill-rule=&quot;evenodd&quot; d=&quot;M0-43a17 17 0 1 1 0 34a17 17 0 1 1 0-34Z M0-33a7 7 0 1 1 0 14a7 7 0 1 1 0-14Z&quot;/&gt;
-            &lt;circle cx=&quot;0&quot; cy=&quot;-45&quot; r=&quot;3&quot;/&gt;
-            &lt;rect x=&quot;-4&quot; y=&quot;-10&quot; width=&quot;8&quot; height=&quot;54&quot; rx=&quot;2&quot;/&gt;
-            &lt;rect x=&quot;-8&quot; y=&quot;-4&quot; width=&quot;16&quot; height=&quot;4&quot; rx=&quot;2&quot;/&gt;
-            &lt;rect x=&quot;-7&quot; y=&quot;4&quot; width=&quot;14&quot; height=&quot;3&quot; rx=&quot;1.5&quot;/&gt;
-            &lt;path d=&quot;M4 26h13v8h-7v4h7v8H4z&quot;/&gt;
-          &lt;/g&gt;
-        &lt;/defs&gt;
-        &lt;polygon points=&quot;0,-44 38,-22 38,22 0,44 -38,22 -38,-22&quot; fill=&quot;url(#hg)&quot; stroke=&quot;#c88cff&quot; stroke-width=&quot;1.6&quot;/&gt;
-        &lt;g class=&quot;hexk&quot;&gt;&lt;polygon points=&quot;0,-44 38,-22 38,22 0,44 -38,22 -38,-22&quot; fill=&quot;none&quot; stroke=&quot;#e6c8ff&quot; stroke-opacity=&quot;.5&quot; stroke-width=&quot;.8&quot; stroke-dasharray=&quot;2 4&quot; transform=&quot;scale(.9)&quot;/&gt;&lt;/g&gt;
-        &lt;g transform=&quot;rotate(40) scale(.62) translate(0 -3)&quot;&gt;
-          &lt;use href=&quot;#ks&quot; fill=&quot;url(#kg)&quot; stroke=&quot;#fff&quot; stroke-opacity=&quot;.7&quot; stroke-width=&quot;1.2&quot;/&gt;
-          &lt;use href=&quot;#ks&quot; fill=&quot;url(#sh)&quot;/&gt;
-        &lt;/g&gt;
-      &lt;/svg&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;steps&quot;&gt;
-      &lt;div class=&quot;st on&quot; id=&quot;s1&quot;&gt;&lt;i&gt;1&lt;/i&gt;XÁC MINH&lt;/div&gt;&lt;div class=&quot;bar&quot; id=&quot;b1&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;st&quot; id=&quot;s2&quot;&gt;&lt;i&gt;2&lt;/i&gt;BYPASS&lt;/div&gt;&lt;div class=&quot;bar&quot; id=&quot;b2&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;st&quot; id=&quot;s3&quot;&gt;&lt;i&gt;3&lt;/i&gt;NHẬN KEY&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;info&quot;&gt;
-      &lt;b class=&quot;it&quot;&gt;TRẠNG THÁI HỆ THỐNG&lt;/b&gt;
-      &lt;div&gt;&lt;span&gt;&lt;u class=&quot;dt&quot;&gt;&lt;/u&gt;Máy chủ&lt;/span&gt;&lt;em&gt;Hoạt động · 12ms&lt;/em&gt;&lt;/div&gt;
-      &lt;div&gt;&lt;span&gt;&lt;u class=&quot;dt&quot;&gt;&lt;/u&gt;Phiên bản&lt;/span&gt;&lt;em&gt;v5.0 Aurora Blue&lt;/em&gt;&lt;/div&gt;
-      &lt;div&gt;&lt;span&gt;&lt;u class=&quot;dt&quot;&gt;&lt;/u&gt;Hiệu lực key&lt;/span&gt;&lt;em&gt;24 giờ / 1 thiết bị&lt;/em&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+  <div class="col-l">
+    <div class="title">LONGRDEZ HUB</div>
+    <div class="orbit">
+      <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+      <div class="pulse"></div><div class="pulse"></div>
+      <svg class="core" viewBox="-50 -50 100 100">
+        <defs>
+          <linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbf0ff"/><stop offset=".45" stop-color="#c88cff"/><stop offset="1" stop-color="#7a2be0"/></linearGradient>
+          <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a0f4d" stop-opacity=".92"/><stop offset="1" stop-color="#0d0420" stop-opacity=".92"/></linearGradient>
+          <linearGradient id="sh" gradientUnits="userSpaceOnUse" x1="-14" y1="0" x2="14" y2="0">
+            <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+            <animateTransform attributeName="gradientTransform" type="translate" from="-45 0" to="45 0" dur="3.6s" repeatCount="indefinite"/>
+          </linearGradient>
+          <g id="ks">
+            <path fill-rule="evenodd" d="M0-43a17 17 0 1 1 0 34a17 17 0 1 1 0-34Z M0-33a7 7 0 1 1 0 14a7 7 0 1 1 0-14Z"/>
+            <circle cx="0" cy="-45" r="3"/>
+            <rect x="-4" y="-10" width="8" height="54" rx="2"/>
+            <rect x="-8" y="-4" width="16" height="4" rx="2"/>
+            <rect x="-7" y="4" width="14" height="3" rx="1.5"/>
+            <path d="M4 26h13v8h-7v4h7v8H4z"/>
+          </g>
+        </defs>
+        <polygon points="0,-44 38,-22 38,22 0,44 -38,22 -38,-22" fill="url(#hg)" stroke="#c88cff" stroke-width="1.6"/>
+        <g class="hexk"><polygon points="0,-44 38,-22 38,22 0,44 -38,22 -38,-22" fill="none" stroke="#e6c8ff" stroke-opacity=".5" stroke-width=".8" stroke-dasharray="2 4" transform="scale(.9)"/></g>
+        <g transform="rotate(40) scale(.62) translate(0 -3)">
+          <use href="#ks" fill="url(#kg)" stroke="#fff" stroke-opacity=".7" stroke-width="1.2"/>
+          <use href="#ks" fill="url(#sh)"/>
+        </g>
+      </svg>
+    </div>
+    <div class="steps">
+      <div class="st on" id="s1"><i>1</i>XÁC MINH</div><div class="bar" id="b1"></div>
+      <div class="st" id="s2"><i>2</i>BYPASS</div><div class="bar" id="b2"></div>
+      <div class="st" id="s3"><i>3</i>NHẬN KEY</div>
+    </div>
+    <div class="info">
+      <b class="it">TRẠNG THÁI HỆ THỐNG</b>
+      <div><span><u class="dt"></u>Máy chủ</span><em>Hoạt động · 12ms</em></div>
+      <div><span><u class="dt"></u>Phiên bản</span><em>v5.0 Aurora Blue</em></div>
+      <div><span><u class="dt"></u>Hiệu lực key</span><em>24 giờ / 1 thiết bị</em></div>
+    </div>
+  </div>
 
-  &lt;div class=&quot;col-r&quot;&gt;
-    &lt;div class=&quot;head&quot;&gt;TERMINAL CẤP KEY&lt;/div&gt;
-    &lt;div class=&quot;term&quot; id=&quot;term&quot;&gt;
-      &lt;div class=&quot;dots&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;span&gt;longrdez@hub:~&lt;/span&gt;&lt;/div&gt;
-      &lt;div id=&quot;logs&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;ll&quot;&gt;&lt;span id=&quot;typing&quot;&gt;Sẵn sàng nhận diện thiết bị...&lt;/span&gt;&lt;span class=&quot;cur&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;button class=&quot;btn&quot; id=&quot;go&quot; onclick=&quot;startExecution()&quot;&gt;Bắt đầu lấy key&lt;/button&gt;
-    &lt;div class=&quot;vault&quot; id=&quot;vault&quot;&gt;
-      &lt;div style=&quot;font-size:12px&quot;&gt;&amp;gt; KEY CỦA BẠN ĐÃ SẴN SÀNG &amp;lt;&lt;/div&gt;
-      &lt;div class=&quot;key&quot; id=&quot;finalKey&quot;&gt;-&lt;/div&gt;
-      &lt;div class=&quot;row&quot;&gt;
-        &lt;button class=&quot;btn&quot; onclick=&quot;copyKey()&quot;&gt;Sao chép&lt;/button&gt;
-        &lt;button class=&quot;btn&quot; style=&quot;background:#33002c;border-color:#ff00dd;color:#d400ff&quot; onclick=&quot;toast(&#39;Đã chuyển hướng Discord!&#39;)&quot;&gt;Discord&lt;/button&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;hist&quot; id=&quot;hist&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&quot;toast&quot;&gt;&lt;/div&gt;
+  <div class="col-r">
+    <div class="head">TERMINAL CẤP KEY</div>
+    <div class="term" id="term">
+      <div class="dots"><i></i><i></i><i></i><span>longrdez@hub:~</span></div>
+      <div id="logs"></div>
+      <div class="ll"><span id="typing">Sẵn sàng nhận diện thiết bị...</span><span class="cur"></span></div>
+    </div>
+    <button class="btn" id="go" onclick="startExecution()">Bắt đầu lấy key</button>
+    <div class="vault" id="vault">
+      <div style="font-size:12px">&gt; KEY CỦA BẠN ĐÃ SẴN SÀNG &lt;</div>
+      <div class="key" id="finalKey">-</div>
+      <div class="row">
+        <button class="btn" onclick="copyKey()">Sao chép</button>
+        <button class="btn" style="background:#33002c;border-color:#ff00dd;color:#d400ff" onclick="toast('Đã chuyển hướng Discord!')">Discord</button>
+      </div>
+      <div class="hist" id="hist"></div>
+    </div>
+  </div>
+</div>
+<div id="toast"></div>
 
-&lt;script&gt;
-const $=id=&gt;document.getElementById(id);
+<script>
+const $=id=>document.getElementById(id);
 const DPR=1;
-const reduce=matchMedia(&#39;(prefers-reduced-motion: reduce)&#39;).matches;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ===== 1. MƯA MA TRẬN (nhẹ, ~20fps) ===== */
-const mc=$(&#39;matrix&#39;),mx=mc.getContext(&#39;2d&#39;);let drops=[];
+const mc=$('matrix'),mx=mc.getContext('2d');let drops=[];
 function rm(){mc.width=innerWidth;mc.height=innerHeight;drops=Array(Math.floor(mc.width/14)).fill(1)}
-rm();addEventListener(&#39;resize&#39;,rm);
-const chars=&#39;01LONGRDEZX9876543210ABCDEF&lt;&gt;/\\&#39;.split(&#39;&#39;);
-setInterval(()=&gt;{
-  if(document.hidden||!document.getElementById(&#39;master&#39;).classList.contains(&#39;show&#39;))return;
-  mx.fillStyle=&#39;rgba(10,1,9,.1)&#39;;mx.fillRect(0,0,mc.width,mc.height);
-  mx.fillStyle=&#39;#8600ff&#39;;mx.font=&#39;14px monospace&#39;;
-  for(let i=0;i&lt;drops.length;i++){
+rm();addEventListener('resize',rm);
+const chars='01LONGRDEZX9876543210ABCDEF<>/\\'.split('');
+setInterval(()=>{
+  if(document.hidden||!document.getElementById('master').classList.contains('show'))return;
+  mx.fillStyle='rgba(10,1,9,.1)';mx.fillRect(0,0,mc.width,mc.height);
+  mx.fillStyle='#8600ff';mx.font='14px monospace';
+  for(let i=0;i<drops.length;i++){
     mx.fillText(chars[Math.random()*chars.length|0],i*14,drops[i]*14);
-    if(drops[i]*14&gt;mc.height&amp;&amp;Math.random()&gt;.97)drops[i]=0;drops[i]++;
+    if(drops[i]*14>mc.height&&Math.random()>.97)drops[i]=0;drops[i]++;
   }
 },50);
 
 /* ===== 2. INTRO: TIA SÁNG + BỤI + CHUỖI CẢNH ===== */
-const intro=$(&#39;intro&#39;),fc=$(&#39;fx&#39;),fx=fc.getContext(&#39;2d&#39;);
+const intro=$('intro'),fc=$('fx'),fx=fc.getContext('2d');
 let W,H,running=true,T0=performance.now();
 function rf(){W=innerWidth;H=innerHeight;fc.width=W*DPR;fc.height=H*DPR;fx.setTransform(DPR,0,0,DPR,0,0)}
-rf();addEventListener(&#39;resize&#39;,rf);
-const dust=Array.from({length:40},()=&gt;({x:Math.random(),y:Math.random(),v:.02+Math.random()*.06,s:Math.random()*2+.5}));
+rf();addEventListener('resize',rf);
+const dust=Array.from({length:40},()=>({x:Math.random(),y:Math.random(),v:.02+Math.random()*.06,s:Math.random()*2+.5}));
 function loop(now){
   if(!running)return;
   const t=(now-T0)/1000;
   fx.clearRect(0,0,W,H);
-  const cx=W/2,cy=H*.45,burst=Math.min(1,t/1.5),fade=t&gt;5.6?Math.max(0,1-(t-5.6)/1.2):1;
+  const cx=W/2,cy=H*.45,burst=Math.min(1,t/1.5),fade=t>5.6?Math.max(0,1-(t-5.6)/1.2):1;
   const R=Math.min(W,H)*.5;
   // quầng sáng
   const gr=R*(.15+.55*burst)*(1+Math.sin(t*3)*.04);
   const g=fx.createRadialGradient(cx,cy,0,cx,cy,gr);
-  g.addColorStop(0,`rgba(255,255,255,${.9*fade})`);g.addColorStop(.25,`rgba(134,0,255,${.5*fade})`);g.addColorStop(1,&#39;rgba(255,0,238,0)&#39;);
+  g.addColorStop(0,`rgba(255,255,255,${.9*fade})`);g.addColorStop(.25,`rgba(134,0,255,${.5*fade})`);g.addColorStop(1,'rgba(255,0,238,0)');
   fx.fillStyle=g;fx.fillRect(0,0,W,H);
   // tia nổ
   fx.lineWidth=1.2;
-  for(let i=0;i&lt;36;i++){
+  for(let i=0;i<36;i++){
     const a=i/36*Math.PI*2+t*.15,l=(R*.1+(Math.sin(i*12.9+t*5)*.5+.5)*R*.5)*burst,r0=R*.12;
     fx.strokeStyle=`rgba(214,150,255,${(.55*fade)*(1-burst*.3)})`;
     fx.beginPath();fx.moveTo(cx+Math.cos(a)*r0,cy+Math.sin(a)*r0);fx.lineTo(cx+Math.cos(a)*(r0+l),cy+Math.sin(a)*(r0+l));fx.stroke();
   }
   // bụi sáng bay lên
-  fx.fillStyle=&#39;#dbbbff&#39;;
-  for(const d of dust){d.y-=d.v*.016;if(d.y&lt;0)d.y=1;fx.globalAlpha=.25+.5*Math.abs(Math.sin(t*2+d.x*9));fx.fillRect(d.x*W,d.y*H,d.s,d.s)}
+  fx.fillStyle='#dbbbff';
+  for(const d of dust){d.y-=d.v*.016;if(d.y<0)d.y=1;fx.globalAlpha=.25+.5*Math.abs(Math.sin(t*2+d.x*9));fx.fillRect(d.x*W,d.y*H,d.s,d.s)}
   fx.globalAlpha=1;
   // sóng xung kích
-  for(const d of [1.4,1.7]){const k=(t-d)/1.6;if(k&gt;0&amp;&amp;k&lt;1){fx.strokeStyle=`rgba(235,205,255,${(1-k)*.7})`;fx.lineWidth=1+3*(1-k);fx.beginPath();fx.arc(cx,cy,R*1.3*k,0,6.283);fx.stroke()}}
+  for(const d of [1.4,1.7]){const k=(t-d)/1.6;if(k>0&&k<1){fx.strokeStyle=`rgba(235,205,255,${(1-k)*.7})`;fx.lineWidth=1+3*(1-k);fx.beginPath();fx.arc(cx,cy,R*1.3*k,0,6.283);fx.stroke()}}
   // vệt sáng ngang
-  if(t&gt;1.2){const f=Math.min(1,(t-1.2)/.6)*fade*(.85+Math.sin(t*4)*.1),lg=fx.createLinearGradient(cx-R*1.3,0,cx+R*1.3,0);lg.addColorStop(0,&#39;rgba(184,107,255,0)&#39;);lg.addColorStop(.5,`rgba(255,255,255,${.85*f})`);lg.addColorStop(1,&#39;rgba(184,107,255,0)&#39;);fx.fillStyle=lg;fx.fillRect(cx-R*1.3,cy-1.5,R*2.6,3)}
+  if(t>1.2){const f=Math.min(1,(t-1.2)/.6)*fade*(.85+Math.sin(t*4)*.1),lg=fx.createLinearGradient(cx-R*1.3,0,cx+R*1.3,0);lg.addColorStop(0,'rgba(184,107,255,0)');lg.addColorStop(.5,`rgba(255,255,255,${.85*f})`);lg.addColorStop(1,'rgba(184,107,255,0)');fx.fillStyle=lg;fx.fillRect(cx-R*1.3,cy-1.5,R*2.6,3)}
   // hạt quay quanh logo
-  if(t&gt;2.2&amp;&amp;fade&gt;0){for(let i=0;i&lt;28;i++){const a=t*(.6+(i%4)*.15)+i*.9,rr=R*(.34+(i%5)*.03);fx.globalAlpha=(.4+.6*Math.abs(Math.sin(t*3+i)))*fade;fx.fillStyle=i%3?&#39;#e9d3ff&#39;:&#39;#ff9cf5&#39;;fx.beginPath();fx.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.38,1.7,0,6.283);fx.fill()}fx.globalAlpha=1}
+  if(t>2.2&&fade>0){for(let i=0;i<28;i++){const a=t*(.6+(i%4)*.15)+i*.9,rr=R*(.34+(i%5)*.03);fx.globalAlpha=(.4+.6*Math.abs(Math.sin(t*3+i)))*fade;fx.fillStyle=i%3?'#e9d3ff':'#ff9cf5';fx.beginPath();fx.arc(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.38,1.7,0,6.283);fx.fill()}fx.globalAlpha=1}
   // ánh sáng nền giai đoạn 3
-  if(t&gt;5.4){const q=Math.min(1,(t-5.4)/1.2),g3=fx.createRadialGradient(cx,H*.5,0,cx,H*.5,R*.7);g3.addColorStop(0,`rgba(184,107,255,${.28*q*(1+Math.sin(t*2)*.15)})`);g3.addColorStop(1,&#39;rgba(184,107,255,0)&#39;);fx.fillStyle=g3;fx.fillRect(0,0,W,H)}
+  if(t>5.4){const q=Math.min(1,(t-5.4)/1.2),g3=fx.createRadialGradient(cx,H*.5,0,cx,H*.5,R*.7);g3.addColorStop(0,`rgba(184,107,255,${.28*q*(1+Math.sin(t*2)*.15)})`);g3.addColorStop(1,'rgba(184,107,255,0)');fx.fillStyle=g3;fx.fillRect(0,0,W,H)}
   // chớp trắng
-  if(t&gt;1.3&amp;&amp;t&lt;2.1){fx.fillStyle=`rgba(255,255,255,${Math.max(0,1-Math.abs(t-1.5)*2.2)*.8})`;fx.fillRect(0,0,W,H)}
+  if(t>1.3&&t<2.1){fx.fillStyle=`rgba(255,255,255,${Math.max(0,1-Math.abs(t-1.5)*2.2)*.8})`;fx.fillRect(0,0,W,H)}
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
 
 // Dòng boot nhỏ góc trái
-const bootTxt=[&#39;LONGRDEZ HUB // SYSTEM&#39;,&#39;initializing core...&#39;,&#39;linking secure channel...&#39;,&#39;device handshake: ok&#39;];
-let bi=0;const bt=setInterval(()=&gt;{$(&#39;boot&#39;).innerHTML+=(bootTxt[bi++]||&#39;&#39;)+&#39;&lt;br&gt;&#39;;if(bi&gt;=bootTxt.length)clearInterval(bt)},700);
+const bootTxt=['LONGRDEZ HUB // SYSTEM','initializing core...','linking secure channel...','device handshake: ok'];
+let bi=0;const bt=setInterval(()=>{$('boot').innerHTML+=(bootTxt[bi++]||'')+'<br>';if(bi>=bootTxt.length)clearInterval(bt)},700);
 
 const timers=[];
-const at=(ms,fn)=&gt;timers.push(setTimeout(fn,ms));
-const lt=setInterval(()=&gt;{
+const at=(ms,fn)=>timers.push(setTimeout(fn,ms));
+const lt=setInterval(()=>{
   const k=Math.min(1,(performance.now()-T0)/9900),p=Math.round((1-Math.pow(1-k,1.6))*100);
-  $(&#39;lfill&#39;).style.width=p+&#39;%&#39;;$(&#39;lpct&#39;).textContent=p+&#39;%&#39;;
-  $(&#39;lmsg&#39;).textContent=p&lt;20?&#39;KHỞI TẠO LÕI HỆ THỐNG&#39;:p&lt;45?&#39;NẠP MODULE ĐỒ HỌA&#39;:p&lt;70?&#39;KẾT NỐI MÁY CHỦ&#39;:p&lt;95?&#39;XÁC THỰC THIẾT BỊ&#39;:&#39;SẴN SÀNG&#39;;
+  $('lfill').style.width=p+'%';$('lpct').textContent=p+'%';
+  $('lmsg').textContent=p<20?'KHỞI TẠO LÕI HỆ THỐNG':p<45?'NẠP MODULE ĐỒ HỌA':p<70?'KẾT NỐI MÁY CHỦ':p<95?'XÁC THỰC THIẾT BỊ':'SẴN SÀNG';
 },100);
-const CAP=[&#39;ĐANG XÁC MINH THIẾT BỊ...&#39;,&#39;ĐANG VƯỢT KIỂM TRA...&#39;,&#39;SẴN SÀNG CẤP KEY&#39;];
-function probe(){let n=0,t0=performance.now();(function f(now){n++;if(now-t0&lt;1800)requestAnimationFrame(f);else if(n/((now-t0)/1000)&lt;42&amp;&amp;!document.hidden)document.documentElement.classList.add(&#39;lite&#39;)})(t0);}
+const CAP=['ĐANG XÁC MINH THIẾT BỊ...','ĐANG VƯỢT KIỂM TRA...','SẴN SÀNG CẤP KEY'];
+function probe(){let n=0,t0=performance.now();(function f(now){n++;if(now-t0<1800)requestAnimationFrame(f);else if(n/((now-t0)/1000)<42&&!document.hidden)document.documentElement.classList.add('lite')})(t0);}
 at(3000,probe);
-at(1500,()=&gt;intro.classList.add(&#39;s2&#39;));
-at(5600,()=&gt;{intro.classList.remove(&#39;s2&#39;);intro.classList.add(&#39;s3&#39;)});
-at(6400,()=&gt;{$(&#39;h1&#39;).classList.add(&#39;on&#39;);$(&#39;cap&#39;).textContent=CAP[0]});
-at(7100,()=&gt;$(&#39;l1&#39;).classList.add(&#39;on&#39;));
-at(7700,()=&gt;{$(&#39;h2&#39;).classList.add(&#39;on&#39;);$(&#39;cap&#39;).textContent=CAP[1]});
-at(8400,()=&gt;$(&#39;l2&#39;).classList.add(&#39;on&#39;));
-at(9000,()=&gt;{$(&#39;h3&#39;).classList.add(&#39;on&#39;);$(&#39;cap&#39;).textContent=CAP[2]});
+at(1500,()=>intro.classList.add('s2'));
+at(5600,()=>{intro.classList.remove('s2');intro.classList.add('s3')});
+at(6400,()=>{$('h1').classList.add('on');$('cap').textContent=CAP[0]});
+at(7100,()=>$('l1').classList.add('on'));
+at(7700,()=>{$('h2').classList.add('on');$('cap').textContent=CAP[1]});
+at(8400,()=>$('l2').classList.add('on'));
+at(9000,()=>{$('h3').classList.add('on');$('cap').textContent=CAP[2]});
 at(10200,endIntro);
 function endIntro(){
-  if(intro.classList.contains(&#39;done&#39;))return;
-  timers.forEach(clearTimeout);clearInterval(bt);clearInterval(lt);$(&#39;lfill&#39;).style.width=&#39;100%&#39;;
-  intro.classList.add(&#39;done&#39;);$(&#39;master&#39;).classList.add(&#39;show&#39;);setTimeout(probe,1300);
-  setTimeout(()=&gt;{running=false},1100);
+  if(intro.classList.contains('done'))return;
+  timers.forEach(clearTimeout);clearInterval(bt);clearInterval(lt);$('lfill').style.width='100%';
+  intro.classList.add('done');$('master').classList.add('show');setTimeout(probe,1300);
+  setTimeout(()=>{running=false},1100);
 }
-$(&#39;skip&#39;).onclick=endIntro;
+$('skip').onclick=endIntro;
 if(reduce)endIntro();
 
 /* ===== NGHIÊNG 3D (nhẹ: rAF + chỉ transform) ===== */
-if(matchMedia(&#39;(hover:hover)&#39;).matches&amp;&amp;!reduce){
-  let tx=0,ty=0,raf=0;const mm=$(&#39;master&#39;);
-  addEventListener(&#39;mousemove&#39;,e=&gt;{
+if(matchMedia('(hover:hover)').matches&&!reduce){
+  let tx=0,ty=0,raf=0;const mm=$('master');
+  addEventListener('mousemove',e=>{
     tx=(e.clientX/innerWidth-.5)*2;ty=(e.clientY/innerHeight-.5)*2;
-    if(raf||!mm.classList.contains(&#39;show&#39;))return;
-    raf=requestAnimationFrame(()=&gt;{raf=0;mm.style.transition=&#39;transform .25s ease-out&#39;;mm.style.transform=`perspective(1200px) rotateY(${tx*3}deg) rotateX(${-ty*3}deg)`});
+    if(raf||!mm.classList.contains('show'))return;
+    raf=requestAnimationFrame(()=>{raf=0;mm.style.transition='transform .25s ease-out';mm.style.transform=`perspective(1200px) rotateY(${tx*3}deg) rotateX(${-ty*3}deg)`});
   },{passive:true});
 }
 /* ===== 4. TERMINAL + CẤP KEY ===== */
-const logs=$(&#39;logs&#39;),typing=$(&#39;typing&#39;),go=$(&#39;go&#39;);
+const logs=$('logs'),typing=$('typing'),go=$('go');
 function setStep(n){
-  [1,2,3].forEach(i=&gt;$(&#39;s&#39;+i).classList.toggle(&#39;on&#39;,i&lt;=n));
-  [1,2].forEach(i=&gt;$(&#39;b&#39;+i).classList.toggle(&#39;on&#39;,i&lt;n));
+  [1,2,3].forEach(i=>$('s'+i).classList.toggle('on',i<=n));
+  [1,2].forEach(i=>$('b'+i).classList.toggle('on',i<n));
 }
-function addLog(t,c=&#39;&#39;){const d=document.createElement(&#39;div&#39;);d.className=&#39;ll &#39;+c;d.textContent=&#39;&gt; &#39;+t;logs.appendChild(d)}
+function addLog(t,c=''){const d=document.createElement('div');d.className='ll '+c;d.textContent='> '+t;logs.appendChild(d)}
 function typeFx(text,speed,cb){
-  typing.textContent=&#39;&#39;;let i=0;
-  const iv=setInterval(()=&gt;{
+  typing.textContent='';let i=0;
+  const iv=setInterval(()=>{
     typing.textContent+=text.charAt(i++);
-    if(i&gt;=text.length){clearInterval(iv);setTimeout(()=&gt;{addLog(text,&#39;ok&#39;);typing.textContent=&#39;&#39;;cb&amp;&amp;cb()},300)}
+    if(i>=text.length){clearInterval(iv);setTimeout(()=>{addLog(text,'ok');typing.textContent='';cb&&cb()},300)}
   },speed);
 }
 function startExecution(){
-  go.disabled=true;logs.innerHTML=&#39;&#39;;setStep(1);
-  addLog(&#39;Khởi tạo giao thức bảo mật...&#39;,&#39;wn&#39;);
-  typeFx(&#39;Đang lấy HWID thiết bị (Android/PC)...&#39;,30,()=&gt;{
-    typeFx(&#39;Kết nối Server LONGRDEZ... OK&#39;,25,()=&gt;{
+  go.disabled=true;logs.innerHTML='';setStep(1);
+  addLog('Khởi tạo giao thức bảo mật...','wn');
+  typeFx('Đang lấy HWID thiết bị (Android/PC)...',30,()=>{
+    typeFx('Kết nối Server LONGRDEZ... OK',25,()=>{
       setStep(2);
-      typeFx(&#39;Kiểm tra trạng thái Bypass Linkvertise...&#39;,40,()=&gt;{
+      typeFx('Kiểm tra trạng thái Bypass Linkvertise...',40,()=>{
         let p=0;
-        const pv=setInterval(()=&gt;{
+        const pv=setInterval(()=>{
           p+=10;const n=p/10;
-          typing.textContent=`Đang xử lý thuật toán [${&#39;|&#39;.repeat(n)}${&#39; &#39;.repeat(10-n)}] ${p}%`;
-          if(p&gt;=100){
-            clearInterval(pv);typing.textContent=&#39;&#39;;
-            addLog(&#39;Bypass xác thực thành công!&#39;,&#39;ok&#39;);
-            typeFx(&#39;Đang sinh key mã hóa SHA-256...&#39;,30,()=&gt;{
+          typing.textContent=`Đang xử lý thuật toán [${'|'.repeat(n)}${' '.repeat(10-n)}] ${p}%`;
+          if(p>=100){
+            clearInterval(pv);typing.textContent='';
+            addLog('Bypass xác thực thành công!','ok');
+            typeFx('Đang sinh key mã hóa SHA-256...',30,()=>{
               setStep(3);
-              const k=&#39;LRZ-&#39;+Math.random().toString(36).substring(2,12).toUpperCase()+&#39;-VIP&#39;;
-              $(&#39;finalKey&#39;).textContent=k;saveKey(k);
-              go.style.display=&#39;none&#39;;$(&#39;vault&#39;).style.display=&#39;block&#39;;
+              const k='LRZ-'+Math.random().toString(36).substring(2,12).toUpperCase()+'-VIP';
+              $('finalKey').textContent=k;saveKey(k);
+              go.style.display='none';$('vault').style.display='block';
             });
           }
         },180);
@@ -481,28 +481,28 @@ function startExecution(){
 /* ===== 5. KHO KEY (lưu 24h trên máy) ===== */
 function saveKey(k){
   try{
-    const a=JSON.parse(localStorage.getItem(&#39;lrz_keys&#39;)||&#39;[]&#39;).filter(x=&gt;x.exp&gt;Date.now());
-    a.unshift({k,exp:Date.now()+864e5});localStorage.setItem(&#39;lrz_keys&#39;,JSON.stringify(a.slice(0,5)));
+    const a=JSON.parse(localStorage.getItem('lrz_keys')||'[]').filter(x=>x.exp>Date.now());
+    a.unshift({k,exp:Date.now()+864e5});localStorage.setItem('lrz_keys',JSON.stringify(a.slice(0,5)));
   }catch(e){}
   renderHist();
 }
 function renderHist(){
   try{
-    const a=JSON.parse(localStorage.getItem(&#39;lrz_keys&#39;)||&#39;[]&#39;).filter(x=&gt;x.exp&gt;Date.now());
-    $(&#39;hist&#39;).innerHTML=a.length?&#39;&lt;b style=&quot;color:#fff&quot;&gt;KHO KEY&lt;/b&gt;&#39;+a.map(x=&gt;{
+    const a=JSON.parse(localStorage.getItem('lrz_keys')||'[]').filter(x=>x.exp>Date.now());
+    $('hist').innerHTML=a.length?'<b style="color:#fff">KHO KEY</b>'+a.map(x=>{
       const h=Math.max(1,Math.round((x.exp-Date.now())/36e5));
-      return `&lt;div&gt;&lt;span&gt;${x.k}&lt;/span&gt;&lt;span&gt;còn ${h}h&lt;/span&gt;&lt;/div&gt;`}).join(&#39;&#39;):&#39;&#39;;
+      return `<div><span>${x.k}</span><span>còn ${h}h</span></div>`}).join(''):'';
   }catch(e){}
 }
-function toast(t){const e=$(&#39;toast&#39;);e.textContent=t;e.classList.add(&#39;on&#39;);setTimeout(()=&gt;e.classList.remove(&#39;on&#39;),2600)}
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('on');setTimeout(()=>e.classList.remove('on'),2600)}
 function copyKey(){
-  const k=$(&#39;finalKey&#39;).textContent;
+  const k=$('finalKey').textContent;
   (navigator.clipboard?navigator.clipboard.writeText(k):Promise.reject())
-    .then(()=&gt;toast(&#39;Đã sao chép key! Dán vào Delta Executor nhé.&#39;))
-    .catch(()=&gt;toast(&#39;Không sao chép được, hãy bôi đen và copy thủ công.&#39;));
+    .then(()=>toast('Đã sao chép key! Dán vào Delta Executor nhé.'))
+    .catch(()=>toast('Không sao chép được, hãy bôi đen và copy thủ công.'));
 }
 renderHist();
-(function(){const o=document.querySelector(&#39;.orbit&#39;);for(let i=0;i&lt;16;i++){const e=document.createElement(&#39;span&#39;);e.className=&#39;sp&#39;;e.style.left=(8+Math.random()*84)+&#39;%&#39;;e.style.top=(8+Math.random()*84)+&#39;%&#39;;e.style.animationDelay=(Math.random()*3.2)+&#39;s&#39;;o.appendChild(e)}})();
-&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+(function(){const o=document.querySelector('.orbit');for(let i=0;i<16;i++){const e=document.createElement('span');e.className='sp';e.style.left=(8+Math.random()*84)+'%';e.style.top=(8+Math.random()*84)+'%';e.style.animationDelay=(Math.random()*3.2)+'s';o.appendChild(e)}})();
+</script>
+</body>
+</html>
